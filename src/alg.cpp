@@ -18,12 +18,12 @@ return -1;
 
 std::string infx2pstfx(std::string inf) {
 
-string pstfx = "";
+std::string pstfx = "";
 TStack <char,5> stack1;
 
 stack1.clearTStack();
 
-string str = '(' + inf + ')';
+std::string str = '(' + inf + ')';
 for (int i = 0; i < sizeof(str); i++) {
 if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i]; }
 else if (str[i] == '(') { stack1.Push(str[i]); }
