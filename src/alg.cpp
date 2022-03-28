@@ -21,15 +21,16 @@ TStack <char, 5> stack1;
 stack1.clearTStack();
 std::string str = '(' + inf + ')';
 for (int i = 0; i < sizeof(str); i++) {
-if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i]; 
-} else { if (str[i] == '(') stack1.Push(str[i]); 
+if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i];
+} else { if (str[i] == '(') stack1.Push(str[i]);
 } else { if (str[i] == ')') {
 while (stack1.Top() != '(') {
 pstfx += stack1.Pop();
 }
 stack1.Pop();
 }
-} else { if ((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/')) {
+} else {
+if((str[i] == '+')||(str[i] == '-')||(str[i] == '*')||(str[i] == '/')) {
 pstfx += ' ';
 if (priority(stack1.Top()) < priority(str[i])) {
 stack1.Push(str[i]);
@@ -74,7 +75,7 @@ int j = temp - &pref[i];
 i += j - 1;
 }
 }
-if (stack2.isEmpty()) { throw 6; 
+if (stack2.isEmpty()) { throw 6;
 } else { result = stack2.Pop(); }
 if (!(stack2.isEmpty())) { throw 7; }
 
