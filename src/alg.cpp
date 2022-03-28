@@ -30,12 +30,12 @@ pstfx += stack1.Pop();
 stack1.Pop();
 }
 } else {
-if((str[i] == '+')||(str[i] == '-')||(str[i] == '*')||(str[i] == '/')) {
+if((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/'))
+{
 pstfx += ' ';
 if (priority(stack1.Top()) < priority(str[i])) {
 stack1.Push(str[i]);
-}
-else {
+} else {
 while (priority(stack1.Top()) >= priority(str[i]))
 pstfx += stack1.Pop();
 stack1.Push(str[i]);
@@ -45,16 +45,15 @@ stack1.Push(str[i]);
 }
 return std::string("");
 }
-
 int eval(std::string pref) {
-
 TStack<int, 5> stack2;
 int first;
 int second;
 int result;
 stack2.clearTStack();
 for (size_t i = 0; i < pref.size(); i++) {
-if ((pref[i] == '+') || (pref[i] == '-') || (pref[i] == '/') || (pref[i] == '*')) {
+if((pref[i] == '+') || (pref[i] == '-') || (pref[i] == '/') || (pref[i] == '*'))
+{
 if (stack2.isEmpty()) throw 4;
 second = stack2.Pop();
 if (stack2.isEmpty()) throw 4;
