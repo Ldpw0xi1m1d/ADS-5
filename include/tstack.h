@@ -5,15 +5,12 @@
 template<typename T, int size>
 
 class TStack {
-
-private:
-
+ private:
 int size;
 int MaxSize;
 T* mas;
 
-public:
-
+ public:
 TStack(int _MaxSize = 15) {
 MaxSize = _MaxSize;
 size = 0;
@@ -26,18 +23,18 @@ mas[size] = a;
 size++;
 }
 T Pop() {
-if (isEmpty()) throw  2;
+if (isEmpty()) throw 2;
 size--;
 return mas[size];
 }
 T Top() { if (isEmpty()) throw 3;
-return mas[size - 1]; 
+return mas[size - 1];
 }
 ~TStack() { delete[] mas; }
-bool isEmpty() { if (size == 0) return true; 
+bool isEmpty() { if (size == 0) return true;
 } else { return false; }
 
-bool isFull() { if (size == MaxSize) return true; 
+bool isFull() { if (size == MaxSize) return true;
 } else { return false; }
 
 void clearTStack() { size = 0; }
