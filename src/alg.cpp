@@ -28,8 +28,7 @@ while (stack1.Top() != '(') {
 pstfx += stack1.Pop();
 }
 stack1.Pop();
-}
-else
+} else {
 if((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/')) {
 pstfx += ' ';
 if (priority(stack1.Top()) < priority(str[i])) {
@@ -38,6 +37,7 @@ stack1.Push(str[i]);
 while (priority(stack1.Top()) >= priority(str[i]))
 pstfx += stack1.Pop();
 stack1.Push(str[i]);
+}
 }
 }
 } return std::string(""); }
