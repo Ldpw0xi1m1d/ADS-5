@@ -16,10 +16,10 @@ return -1;
 }
 
 std::string infx2pstfx(std::string inf) {
- std::string pstfx = "";
+std::string pstfx = "";
+std::string str = '(' + inf + ')';
 TStack <char, 5> stack1;
 stack1.clearTStack();
-std::string str = '(' + inf + ')';
 for (int i = 0; i < sizeof(str); i++) {
 if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i];
 } else { if (str[i] == '(') stack1.Push(str[i]);
@@ -44,6 +44,7 @@ stack1.Push(str[i]);
 }
 return std::string("");
 }
+
 int eval(std::string pref) {
 TStack<int, 5> stack2;
 int first;
