@@ -32,14 +32,12 @@ return mas[size - 1];
 }
 ~TStack() { delete[] mas; }
 bool isEmpty() {
-if (size == 0) return true;
-{ else { return false; }
+if (size == 0){ return true; else { return false; }
 }
 }
 
 bool isFull() {
-if (size == MaxSize) return true;
-{ else { return false; }
+if (size == MaxSize){ return true; else { return false; }
 }
 }
 
