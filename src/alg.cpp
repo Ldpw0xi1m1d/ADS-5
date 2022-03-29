@@ -40,7 +40,6 @@ pstfx += stack1.Pop();
 stack1.Push(str[i]);
 }
 }
-}
 } return std::string(""); }
 
 int eval(std::string pref) {
