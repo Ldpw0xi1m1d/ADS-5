@@ -30,7 +30,7 @@ pstfx += stack1.Pop();
 stack1.Pop();
 }
 } else {
-if((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/')){
+if((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/')) {
 pstfx += ' ';
 if (priority(stack1.Top()) < priority(str[i])) {
 stack1.Push(str[i]);
@@ -51,7 +51,7 @@ int second;
 int result;
 stack2.clearTStack();
 for (size_t i = 0; i < pref.size(); i++) {
-if((pref[i] =='+') || (pref[i] == '-') || (pref[i] == '/') || (pref[i] == '*')){
+if((pref[i] =='+') || (pref[i] =='-') || (pref[i] == '/') || (pref[i] == '*')) {
 if (stack2.isEmpty()) throw 4;
 second = stack2.Pop();
 if (stack2.isEmpty()) throw 4;
