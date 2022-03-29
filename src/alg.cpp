@@ -21,9 +21,11 @@ std::string str = '(' + inf + ')';
 TStack <char, 5> stack1;
 stack1.clearTStack();
 for (int i = 0; i < sizeof(str); i++) {
-if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i];
-} else { if (str[i] == '(') stack1.Push(str[i]);
-} else { if (str[i] == ')') {
+if (str[i] >= '0' && str[i] <= '9') pstfx += str[i];
+else {
+if (str[i] == '(') stack1.Push(str[i]);
+} else {
+if (str[i] == ')') {
 while (stack1.Top() != '(') {
 pstfx += stack1.Pop();
 }
