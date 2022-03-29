@@ -41,9 +41,7 @@ stack1.Push(str[i]);
 }
 }
 }
-}
-return std::string("");
-}
+} return std::string(""); }
 
 int eval(std::string pref) {
 TStack<int, 5> stack2;
