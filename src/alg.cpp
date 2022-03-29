@@ -16,7 +16,7 @@ return -1;
 }
 
 std::string infx2pstfx(std::string inf) {
-std::string pstfx = "";
+ std::string pstfx = "";
 TStack <char, 5> stack1;
 stack1.clearTStack();
 std::string str = '(' + inf + ')';
