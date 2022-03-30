@@ -63,14 +63,6 @@ case '/': result = first / second; break;
 }
 stack2.Push(result);
 }
-if ((pstfx[i] >= '0') && (pstfx[i] <= '9')) {
-char* temp;
-result = strtod(&pstfx[i], &temp);
-stack2.Push(result);
-int j = temp - &pstfx[i];
-i += j - 1;
-}
-}
 if (stack2.isEmpty()) { throw 6;
 } else { result = stack2.Pop(); }
 if (!(stack2.isEmpty())) { throw 7; }
