@@ -50,7 +50,7 @@ int result;
 stack2.clearTStack();
 for (size_t i = 0; i < pstfx.size(); i++) {
 if((pstfx[i] =='+') || (pstfx[i] =='-') || (pstfx[i] == '/') ||
-   (pstfx[i] == '*')) {
+(pstfx[i] == '*')) {
 if (stack2.isEmpty()) throw 4;
 second = stack2.Pop();
 if (stack2.isEmpty()) throw 4;
@@ -65,7 +65,7 @@ stack2.Push(result);
 }
 if (stack2.isEmpty()) { throw 6;
 } else { result = stack2.Pop(); }
-if (!(stack2.isEmpty())) throw 7; 
+if (!(stack2.isEmpty())) throw 7;
 }
 return result;
 }
