@@ -49,7 +49,8 @@ int second;
 int result;
 stack2.clearTStack();
 for (size_t i = 0; i < pstfx.size(); i++) {
-if((pstfx[i] =='+') || (pstfx[i] =='-') || (pstfx[i] == '/') || (pstfx[i] == '*')) {
+if((pstfx[i] =='+') || (pstfx[i] =='-') || (pstfx[i] == '/') ||
+   (pstfx[i] == '*')) {
 if (stack2.isEmpty()) throw 4;
 second = stack2.Pop();
 if (stack2.isEmpty()) throw 4;
