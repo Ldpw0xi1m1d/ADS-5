@@ -42,19 +42,19 @@ stack1.Push(str[i]);
 }
 } return pstfx; }
 
-int eval(std::string pref) {
+int eval(std::string pstfx) {
 TStack<int, 5> stack2;
 int first;
 int second;
 int result;
 stack2.clearTStack();
-for (size_t i = 0; i < pref.size(); i++) {
-if((pref[i] =='+') || (pref[i] =='-') || (pref[i] == '/') || (pref[i] == '*')) {
+for (size_t i = 0; i < pstfx.size(); i++) {
+if((pstfx[i] =='+') || (pstfx[i] =='-') || (pstfx[i] == '/') || (pstfx[i] == '*')) {
 if (stack2.isEmpty()) throw 4;
 second = stack2.Pop();
 if (stack2.isEmpty()) throw 4;
 first = stack2.Pop();
-switch (pref[i]) {
+switch (pstfx[i]) {
 case '+': result = first + second; break;
 case '-': result = first - second; break;
 case '*': result = first * second; break;
@@ -62,11 +62,11 @@ case '/': result = first / second; break;
 }
 stack2.Push(result);
 }
-if ((pref[i] >= '0') && (pref[i] <= '9')) {
+if ((pstfx[i] >= '0') && (pstfx[i] <= '9')) {
 char* temp;
-result = strtod(&pref[i], &temp);
+result = strtod(&pstfx[i], &temp);
 stack2.Push(result);
-int j = temp - &pref[i];
+int j = temp - &pstfx[i];
 i += j - 1;
 }
 }
