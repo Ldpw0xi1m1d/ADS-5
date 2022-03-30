@@ -65,7 +65,7 @@ stack2.Push(result);
 }
 if (stack2.isEmpty()) { throw 6;
 } else { result = stack2.Pop(); }
-if (!(stack2.isEmpty())) { throw 7; }
-
+if (!(stack2.isEmpty())) throw 7; 
+}
 return result;
 }
