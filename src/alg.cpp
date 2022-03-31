@@ -17,7 +17,7 @@ return -1;
 
 std::string infx2pstfx(std::string inf) {
 TStack <char, 10> stack1;
- std::string pstfx = "";
+std::string pstfx = "";
     int i = 0;
   for (i; i < inf.length(); i++) {
     if (inf[i] >= '0' && inf[i] <= '9') {
