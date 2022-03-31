@@ -16,9 +16,9 @@ return -1;
 }
 
 std::string infx2pstfx(std::string inf) {
+TStack <char, 10> stack1;
  std::string pstfx = "";
     int i = 0;
-     TStack <char, 10> stack1;
   for (i; i < inf.length(); i++) {
     if (inf[i] >= '0' && inf[i] <= '9') {
       pstfx += inf[i];
@@ -76,7 +76,7 @@ int stoyamba(std::string first) {
        return stoi(first);
 }
 int eval(std::string pref) {
- TStack <int, 10> stack;
+TStack <int, 10> stack;
      int i = 0;
      std::string num;
      int first1;
