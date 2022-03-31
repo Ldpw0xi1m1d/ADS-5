@@ -2,43 +2,57 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
-template<typename T, int size1>
-
+template <typename T, int size1>
 class TStack {
- private:
-int size;
+
+private:
+
+int Size;
 int MaxSize;
 T* mas;
 
- public:
+public:
+
 TStack(int _MaxSize = 15) {
 MaxSize = _MaxSize;
-size = size1;
+Size = 0;
 mas = new T[MaxSize];
 }
 
-void Push(T a) {
-if (isFull()) throw 1;
-mas[size] = a;
-size += 1;
+TStack(const TStack& ts) {
+MaxSize = ts.MaxSize;
+Size = ts.Size;
+mas = new T[ts.MaxSize];
+for (int i = 0; i < Size; i++) {
+mas[i] = ts.mas[i];
 }
-T Pop() {
-if (isEmpty()) throw 2;
-size -= -1;
-return mas[size];
 }
-T Top() { if (isEmpty()) throw 3;
-return mas[size - 1];
+
+~TStack() {
+delete[] mas;
 }
-~TStack() { delete[] mas; }
+
 bool isEmpty() {
-if (size == 0) { return true; } else { return false; }
+if (Size == 0)
+return true;
+else
+return false;
 }
 
-bool isFull() {
-if (size == MaxSize) { return true; } else { return false; }
+void Push(T a) {
+mas[Size] = a;
+Size++;
 }
 
-void clearTStack() { size = 0; }
+T Pop() {
+if (isEmpty())  throw  2;
+Size--;
+return mas[Size];
+}
+
+T Top() {
+if (isEmpty())  throw 3;
+return mas[Size - 1];
+}
 };
 #endif  // INCLUDE_TSTACK_H_
