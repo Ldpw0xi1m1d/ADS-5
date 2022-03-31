@@ -17,57 +17,70 @@ return -1;
 
 std::string infx2pstfx(std::string inf) {
 std::string pstfx = "";
-std::string str = '(' + inf + ')';
-TStack <char, 5> stack1;
-stack1.clearTStack();
-for (int i = 0; i < str.size(); i++) {
-if (priority(str[i]) == -1) {
-pstfx += str[i];
-} else if (str[i] >= '0' && str[i] <= '9') { pstfx += str[i];
-} else if (str[i] == '(') { stack1.Push(str[i]);
-} else if (str[i] == ')') {
+int i = 0;
+TStack <char, 10> stack1;
+for(i; i<inf.length(); i++) {
+if (inf[i] >= '0' && inf[i] <= '9') {
+pstfx += inf[i];
+} else if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
+if (stack1.isEmpty()) {
+stack1.Push(inf[i]);
+} else if (stack1.Top() == '(') {
+stack1.Push(inf[i]);
+} else if (priority(inf[i]) > priority(stack1.Top())) {
+stack1.Push(inf[i]);
+} else if (priority(inf[i]) <= priority(stack1.Top())) {
+pstfx += stack1.Pop();
+while ((priority(inf[i]) <= priority(stack1.Top()) ||
+stack1.Top() != '(') && !stack1.isEmpty()) {
+pstfx += stack1.Pop();
+}
+stack1.Push(inf[i]);
+}
+} else if (inf[i] == '(') {
+stack1.Push(inf[i]);
+} else if (inf[i] == ')') {
 while (stack1.Top() != '(') {
 pstfx += stack1.Pop();
 }
 stack1.Pop();
-} else {
-if((str[i] == '+') || (str[i] == '-') || (str[i] == '*') || (str[i] == '/')) {
-pstfx += ' ';
-if (priority(stack1.Top()) < priority(str[i])) {
-stack1.Push(str[i]);
-} else {
-while (priority(stack1.Top()) >= priority(str[i]))
+}
+}
+while (!stack1.isEmpty()) {
 pstfx += stack1.Pop();
-stack1.Push(str[i]);
 }
+return pstfx;
 }
-}
-} return pstfx; }
 
-int eval(std::string pstfx) {
-TStack<int, 5> stack2;
-int first;
-int second;
-int result;
-stack2.clearTStack();
-for (size_t i = 0; i < pstfx.size(); i++) {
-if((pstfx[i] =='+') || (pstfx[i] =='-') || (pstfx[i] == '/') ||
-(pstfx[i] == '*')) {
-if (stack2.isEmpty()) throw 4;
-second = stack2.Pop();
-if (stack2.isEmpty()) throw 4;
-first = stack2.Pop();
-switch (pstfx[i]) {
-case '+': result = first + second; break;
-case '-': result = first - second; break;
-case '*': result = first * second; break;
-case '/': result = first / second; break;
+int result(int first, int second, char ch) {
+int res;
+switch (ch) {
+case '+':return res = first + second;
+case'-':return res = first - second;
+case '*': return res = first * second;
+case'/': return res = first / second;
 }
-stack2.Push(result);
+return 0;
 }
-if (stack2.isEmpty()) { throw 6;
-} else { result = stack2.Pop(); }
-if (!(stack2.isEmpty())) throw 7;
+int stoyamba(std::string first) {
+	return stoi(first);
 }
-return result;
+int eval(std::string pref) {
+
+TStack <int, 10> stack;
+int i = 0;
+std::string num;
+int first1;
+int second1;
+for (i; i < pref.length(); i++) {
+if (priority(pref[i]) == -1 && pref[i] != ' ') {
+num = pref[i];
+stack.Push(stoyamba(num));
+} else if (pref[i] == '-' || pref[i] == '+' || pref[i] == '*' || pref[i] == '/') {
+second1 = stack.Pop();
+first1 = stack.Pop();
+stack.Push(result(first1, second1, pref[i]));
+}
+}
+return stack.Pop();
 }
