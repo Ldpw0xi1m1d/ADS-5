@@ -17,14 +17,13 @@ return -1;
 
 std::string infx2pstfx(std::string inf) {
 TStack <char, 10> stack1;
-std::string pstfx;
-    pstfx = "";
-    int i = 0;
-  for (i; i < inf.length(); i++) {
-    if (inf[i] >= '0' && inf[i] <= '9') {
-      pstfx += inf[i];
-     } else if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' ||
-        inf[i] == '/') {
+         std::string pstfx = "";
+         int i = 0;
+             for (i; i < inf.length(); i++) {
+              if (inf[i] >= '0' && inf[i] <= '9') {
+                 pstfx += inf[i];
+          } else if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' ||
+                inf[i] == '/') {
                  if (stack1.isEmpty()) {
                           stack1.Push(inf[i]);
                                  pstfx += " ";
