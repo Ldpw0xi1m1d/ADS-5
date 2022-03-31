@@ -25,15 +25,22 @@ pstfx += inf[i];
 } else if (inf[i] == '+' || inf[i] == '-' || inf[i] == '*' || inf[i] == '/') {
 if (stack1.isEmpty()) {
 stack1.Push(inf[i]);
-} else if (stack1.Top() == '(') {
+pstfx += " ";
+} else if(stack1.Top() == '(') {
 stack1.Push(inf[i]);
+pstfx += " ";
 } else if (priority(inf[i]) > priority(stack1.Top())) {
 stack1.Push(inf[i]);
+pstfx += " ";
 } else if (priority(inf[i]) <= priority(stack1.Top())) {
+pstfx += " ";
 pstfx += stack1.Pop();
+pstfx += " ";
 while ((priority(inf[i]) <= priority(stack1.Top()) ||
 stack1.Top() != '(') && !stack1.isEmpty()) {
+pstfx += " ";
 pstfx += stack1.Pop();
+pstfx += " ";
 }
 stack1.Push(inf[i]);
 }
@@ -41,12 +48,14 @@ stack1.Push(inf[i]);
 stack1.Push(inf[i]);
 } else if (inf[i] == ')') {
 while (stack1.Top() != '(') {
+pstfx += " ";
 pstfx += stack1.Pop();
 }
 stack1.Pop();
 }
 }
 while (!stack1.isEmpty()) {
+pstfx += " ";
 pstfx += stack1.Pop();
 }
 return pstfx;
@@ -63,7 +72,7 @@ case'/': return res = first / second;
 return 0;
 }
 int stoyamba(std::string first) {
-	return stoi(first);
+return stoi(first);
 }
 int eval(std::string pref) {
 
