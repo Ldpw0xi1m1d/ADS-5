@@ -4,15 +4,12 @@
 
 template<typename T, int size1>
 class TStack {
-
-private:
-
+ private:
 int size;
 int MaxSize;
 T* mas;
 
-public:
-
+ public:
 TStack() {
 size = size1;
 mas = new T[size];
