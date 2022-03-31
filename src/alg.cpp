@@ -5,18 +5,18 @@
 
 int priority(char ch) {
 switch (ch) {
- case '(': return 0; break;
- case ')': return 1; break;
- case '+': return 2; break;
- case '-': return 2; break;
- case '*': return 3; break;
- case '/': return 3; break;
- }
- return -1;
+case '(': return 0; break;
+case ')': return 1; break;
+case '+': return 2; break;
+case '-': return 2; break;
+case '*': return 3; break;
+case '/': return 3; break;
+}
+return -1;
 }
 
 std::string infx2pstfx(std::string inf) {
-   std::string pstfx = "";
+ std::string pstfx = "";
     int i = 0;
      TStack <char, 10> stack1;
   for (i; i < inf.length(); i++) {
@@ -38,10 +38,10 @@ std::string infx2pstfx(std::string inf) {
                                 pstfx += stack1.Pop();
                                 pstfx += " ";
                            while ((priority(inf[i]) <= priority(stack1.Top()) ||
-                                      stack1.Top() != '(') && !stack1.isEmpty()) {
-                                        pstfx += " ";
-                                        pstfx += stack1.Pop();
-                                        pstfx += " ";
+                              stack1.Top() != '(') && !stack1.isEmpty()) {
+                                pstfx += " ";
+                                pstfx += stack1.Pop();
+                                pstfx += " ";
                                 }
                                 stack1.Push(inf[i]);
                          }
@@ -76,7 +76,7 @@ int stoyamba(std::string first) {
        return stoi(first);
 }
 int eval(std::string pref) {
-   TStack <int, 10> stack;
+ TStack <int, 10> stack;
      int i = 0;
      std::string num;
      int first1;
